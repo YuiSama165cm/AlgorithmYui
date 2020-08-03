@@ -18,8 +18,13 @@ public class ArrayDemo {
     public static void main(String[] args) {
         int[] array = new int[]{11,22,33};
 //        array是局部变量，放在栈空间
+        //new是向堆空间申请内存
 
         YuiArrayList list = new YuiArrayList();
-        list.get(-10);
+        list.add(99);
+        list.add(66);
+        list.add(77);
+        list.add(11);
+        System.out.println(list.toString());
     }
 }

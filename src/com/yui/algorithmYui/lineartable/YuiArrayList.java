@@ -88,7 +88,7 @@ public class YuiArrayList {
      * @param
      * */
     public void add(int element){
-
+        elements[size++] = element;
     }
 
     /**
@@ -148,6 +148,25 @@ public class YuiArrayList {
             }
         }
         return ELEMENT_NOT_FOUND;
+    }
+
+    @Override
+    public String toString(){//自定义toString
+        StringBuilder string = new StringBuilder();
+        //打印出size = 3,[99,88,77]这种形式
+        string.append("size=").append(size).append(",[");
+        for (int i = 0; i < size; i++) {
+            if(i != 0){
+                string.append(",");
+            }
+            string.append(elements[i]);
+//            if(i!=size-1){
+//                string.append(",");
+//            }
+        }
+        string.append("]");
+
+        return string.toString();
     }
 
 }
