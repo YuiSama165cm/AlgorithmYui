@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cee2c7d5-dc98-498c-9fcd-83dbf14a0615" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/com/yui/algorithmYui/Assert.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/yui/algorithmYui/lineartable/ArrayDemo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/yui/algorithmYui/lineartable/ArrayDemo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/yui/algorithmYui/lineartable/YuiArrayList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/yui/algorithmYui/lineartable/YuiArrayList.java" afterDir="false" />
@@ -99,7 +100,8 @@
       <updated>1596094767292</updated>
       <workItem from="1596094771721" duration="424000" />
       <workItem from="1596095259253" duration="4130000" />
-      <workItem from="1596425245061" duration="12146000" />
+      <workItem from="1596425245061" duration="12797000" />
+      <workItem from="1596528996635" duration="2980000" />
     </task>
     <servers />
   </component>

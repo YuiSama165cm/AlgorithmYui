@@ -1,4 +1,7 @@
 package com.yui.algorithmYui.lineartable;
+
+import com.yui.algorithmYui.Assert;
+
 /**
  * 数组：
  *      数组是一种顺序存储的线性表，所有元素的内存地址都是连续的。
@@ -25,6 +28,24 @@ public class ArrayDemo {
         list.add(66);
         list.add(77);
         list.add(11);
+        list.add(11);
+        list.add(11);
+        list.add(11);
+        list.add(11);
+
+//        //调用接口测试，并与自己想要的结果比对，如果不符合就报错
+//        if(list.get(3) != 12){
+//            throw new IllegalArgumentException("测试不通过");
+//        }
+        //封装错误输出
+        Assert.test(list.get(3) == 11);
+
+        list.remove(0);
+        Assert.test(list.get(0) == 66);
+
+//        list.add(1,100);
+
+
         System.out.println(list.toString());
     }
 }

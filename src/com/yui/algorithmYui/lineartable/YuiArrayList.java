@@ -88,7 +88,29 @@ public class YuiArrayList {
      * @param
      * */
     public void add(int element){
+        ensureCapacity(size+1);
         elements[size++] = element;
+    }
+
+
+    /**
+     * 保证要有capacity的容量
+     * @param capacity
+     * */
+    private void ensureCapacity(int capacity){
+        int oldCapacity = elements.length;
+        if (oldCapacity >= capacity){
+            return;
+        }
+        int newCapacity = oldCapacity + (oldCapacity>>1);//旧容量1.5倍，位运算
+        int[] newElements = new int[newCapacity];
+        for(int i = 0;i < size ;i++){
+            newElements[i] = elements[i];
+        }
+        elements = newElements;//指向新的数组
+
+        System.out.println(oldCapacity + "扩容为" + newCapacity );
+
     }
 
     /**
@@ -97,9 +119,7 @@ public class YuiArrayList {
      * @return
      * */
     public int get(int index){
-        if(index<0 || index >= size){//判断是否小于0或者是否越界
-            throw new IndexOutOfBoundsException("Index:" + index + ", Size:" + size);
-        }
+        rangeCheck(index);
         return elements[index];
     }
 
@@ -110,12 +130,30 @@ public class YuiArrayList {
      * @return 原来的元素
      * */
     public int set(int index,int element){
-        if(index<0 || index >= size){//判断是否小于0或者是否越界
-            throw new IndexOutOfBoundsException("Index:" + index + ", Size:" + size);
-        }
+        rangeCheck(index);
         int old = elements[index];
         elements[index] = element;
         return old;
+    }
+
+
+    /**
+     * 检查数组越界
+     * */
+    private void outOfBounds(int index){
+        throw new IndexOutOfBoundsException("Index:" + index + ", Size:" + size);
+    }
+
+    private void rangeCheck(int index){
+        if(index<0 || index >= size){//判断是否小于0或者是否越界
+            outOfBounds(index);
+        }
+    }
+
+    private void rangeCheckForAdd(int index){
+        if(index<0 || index > size) {//判断是否小于0或者是否比长度大1
+            outOfBounds(index);
+        }
     }
 
     /**
@@ -124,6 +162,13 @@ public class YuiArrayList {
      * @param element
      * */
     public void add(int index, int element){
+        rangeCheckForAdd(index);
+        ensureCapacity(size+1);
+        for (int i = size - 1; i >= index; i--) {
+            elements[i+1] = elements[i];
+        }
+        elements[index] = element;
+        size++;
 
     }
 
@@ -133,7 +178,13 @@ public class YuiArrayList {
      * @return 返回删除的元素
      * */
     public int remove(int index){
-        return 0;
+        rangeCheck(index);
+        int old = elements[index];
+        for (int i = index + 1; i <= size-1; i++) {
+            elements[i - 1] = elements[i];
+        }
+        size--;
+        return old;
     }
 
     /**
